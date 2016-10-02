@@ -1,0 +1,447 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>小松の前端小站</title>
+  <subtitle>Stay Hungry. Stay Foolish</subtitle>
+  <link href="/atom.xml" rel="self"/>
+  
+  <link href="http://sandm0.github.io/"/>
+  <updated>2016-10-02T06:54:13.119Z</updated>
+  <id>http://sandm0.github.io/</id>
+  
+  <author>
+    <name>Sandm</name>
+    
+  </author>
+  
+  <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>古老的ie6的常见兼容问题汇总</title>
+    <link href="http://sandm0.github.io/2016/10/02/%E5%8F%A4%E8%80%81%E7%9A%84ie6%E7%9A%84%E5%B8%B8%E8%A7%81%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://sandm0.github.io/2016/10/02/古老的ie6的常见兼容问题汇总/</id>
+    <published>2016-10-02T06:44:45.662Z</published>
+    <updated>2016-10-02T06:54:13.119Z</updated>
+    
+    <content type="html"><![CDATA[<ul>
+<li>IE6下，块元素，同时有浮动和横向margin时，横向margin会变成两倍。<pre><code>加设一个display:inline；  
+</code></pre></li>
+<li>IE6下li里的子元素如果都浮动，每个li之间会产生4px的缝隙。<pre><code>加设一个vertical:top；
+</code></pre></li>
+<li>IE6下量浮动元素间注释或存在内联元素时显示异常。<pre><code>删除内联元素/注释，或者与父级元素宽度相差3px以上；
+</code></pre><a id="more"></a>    </li>
+<li>IE6下父级元素的overflow:hidden包不住子级元素的relative。<pre><code>给父级元素也增加一个relative。
+</code></pre></li>
+<li>IE6下绝对定位元素的父级元素宽高是奇数的，显示异常。           不要使用奇数。</li>
+<li>IE6下浮动元素和绝对定位元素同级且并列时，绝对定位元素消失。<pre><code>使两者不要同级存在。
+</code></pre></li>
+<li>IE6下input有间隙。<pre><code>给input增加一个float       
+</code></pre></li>
+<li>IE6下输入类型表单控件背景图片，在输入框被写满时会把图片推走。<pre><code>增加background:fixed
+</code></pre></li>
+<li>&lt;!DOCTYPE HTML&gt;文档类型的声明。IE6浏览器，当我们没有书写这个文档声明的时候，会触发IE6浏览器的怪异解析现象；<pre><code>书写文档声明。
+</code></pre></li>
+<li>不同浏览器当中，很多的标签的默认样式不同，如默认的外部丁内补丁。<pre><code>利用[CSS reset]进行样式的清除，然后再根据需要进行设置。
+</code></pre></li>
+<li>横向双倍外边距，在IE6中块元素浮动后，会出现[横向双倍margin]现象。<pre><code>在float标签的样式控制中加入display：inline
+</code></pre></li>
+<li>默认行高，IE6、IE7、遨游浏览器；设置的文字高度超出盒模型内容区域设置的高度时会影响布局。<pre><code>给超出高度的标签设置overflow：hidden；或者将文字的行高line-height设置为小于块的高度。
+</code></pre></li>
+<li>img标签有链接时外部的border<pre><code>设置img边框border:0;
+</code></pre></li>
+<li>图片默认有间距。img标签（每个img之后敲了回车）<pre><code>为img设置float的浮动布局方式。
+</code></pre></li>
+<li>经典3像素bug。IE6浏览器，浮动块元素与未浮动块元素处于同一行，有默认的3px间距。<pre><code>设置非浮动元素浮动。
+</code></pre></li>
+<li>默认行高，清除浮动的时候，有些人会采取一种[清浮动的方法]。使用一个空的div，然后为这个div设置{clear：both}。在大部分浏览器当中，这样做是没有任何问题的，但是在IE6浏览器当中，div即使是空的，也会存在默认行高。<pre><code>设置其高度为0，并设置overflow:hidden。{height:0;overflow:hidden;clear:both;}
+</code></pre></li>
+<li>a标签hover不适用于所有标签。IE6浏览器中hover只支持a标签的使用，不支持一切其它标签使用；<pre><code>合理用a标签嵌套其他行内标签或者用javascript模拟a的hover效果；
+</code></pre></li>
+<li><p>IE6中table设置属性border-color无效；</p>
+<pre><code>运用CSS样式进行控制，而不是使用属性进行样式的处理。
+</code></pre></li>
+<li><p>IE6浏览器，不支持透明；</p>
+<pre><code>使用javascript进行处理；或者使用gif、jpg图像替代掉png图片的使用。
+</code></pre></li>
+<li><p>IE6不支持透明rgba与opacity此两种透明的设置方法；</p>
+<pre><code>使用IE6当中的滤镜filter替代掉，如：opacity:0.6;filter:alpha(opacity=60)。
+</code></pre></li>
+<li>子选择器在IE6中不能使用<pre><code>采用其他选择器或者采用后代选择器进行控制，如：div   
+p{margin:10px;} div p p{margin:0;}替代掉 div&gt;p{margin:10px;}。
+</code></pre></li>
+<li>IE6浏览器，标签的最低高度/宽度设置（min/max-height）<pre><code>为IE6单独设置hack，即_height:最小高度值；_width：最小宽度值（对于IE6，当实际宽高超出定义的宽高时，元素会自动调整宽高）。对于最大高度和最大宽度，没有必要设置兼容，当前对于开发者来说，只需要保证IE6下正常显示即可，无需在它身上花费太多功夫。
+</code></pre></li>
+<li>纵向居中，IE6不支持display:table-cell。IE6浏览器，设置一个元素在另一个元素中垂直方向上居中对齐，不能够支持以单元格的方式来显示元素；<pre><code>如果是单行文本，采用line-height和height的配合使得文本垂直居中，  
+如果中间是其他元素或者多行文本，采用其他方法进行居中处理，处理  
+方法有多种。
+</code></pre></li>
+<li>input 聚焦框颜色与样式不同<pre><code>使用outline:none，清除默认样式之后再统一设置。
+</code></pre></li>
+<li>鼠标移上小手效果产生条件：IE6，<br>cursor:hand ：IE完全支持。但是在firefox是不支持的，没有效果。<br>cursor:pointer ：是CSS2.0的标准。所以firefox是支持的，但是IE5.0既之前版本不支持。IE6开始支持。<pre><code>cursor:pointer ; cursor:hand。
+</code></pre></li>
+<li>子标签无法撑开父标签的高度。产生条件：父标签内部含一个或多个子标签，父标签没有设置浮动，而子标签发生浮动；<pre><code>方法1：在子标签最后添加清除浮动的设置&lt;div   
+style=&apos;height:0;clear:both&apos;&gt;&lt;/div&gt;; 方法2：为父标签添加  
+{overflow:hidden;}的样式； 方法3：为父标签设置固定高度。
+</code></pre></li>
+<li>li的间距问题。IE6浏览器 li标签设置宽高，且li里面的元素发生了浮动；<pre><code>方法1：li不设置宽高； 方法2：li内部的标签不进行浮动。
+</code></pre></li>
+<li>多个浮动元素中间夹杂HTML注释语句，浮动元素宽度设置为100%；则在下一行多显示一个上一行的最后一个字符；<pre><code>果断删掉注释！
+</code></pre></li>
+<li>CSS优先级 ！important。IE6当中，在同一组CSS属性中，!important不起作用；<pre><code>单独设置。
+</code></pre></li>
+</ul>
+<p>整理来源：<br>1、<a href="http://blog.163.com/hongshaoguoguo@126/blog/static/18046981201371611543769" target="_blank" rel="external">http://blog.163.com/hongshaoguoguo@126/blog/static/18046981201371611543769</a><br> 2、<a href="http://www.w3cfuns.com/blog-5479241-5410340.html" target="_blank" rel="external">http://www.w3cfuns.com/blog-5479241-5410340.html</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;ul&gt;
+&lt;li&gt;IE6下，块元素，同时有浮动和横向margin时，横向margin会变成两倍。&lt;pre&gt;&lt;code&gt;加设一个display:inline；  
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;IE6下li里的子元素如果都浮动，每个li之间会产生4px的缝隙。&lt;pre&gt;&lt;code&gt;加设一个vertical:top；
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+&lt;li&gt;IE6下量浮动元素间注释或存在内联元素时显示异常。&lt;pre&gt;&lt;code&gt;删除内联元素/注释，或者与父级元素宽度相差3px以上；
+&lt;/code&gt;&lt;/pre&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>有料的border-radius</title>
+    <link href="http://sandm0.github.io/2016/10/02/%E6%9C%89%E6%96%99%E7%9A%84border-radius/"/>
+    <id>http://sandm0.github.io/2016/10/02/有料的border-radius/</id>
+    <published>2016-10-02T06:42:53.765Z</published>
+    <updated>2016-10-02T06:55:24.539Z</updated>
+    
+    <content type="html"><![CDATA[<p>注：本文只是对<a href="http://www.zhangxinxu.com/wordpress/2015/11/css3-border-radius-tips/" target="_blank" rel="external">张鑫旭CSS3 border-radius知多少？</a>这篇文章内容做出总结和一些小应用，想要了解过程的同学可以直接戳上面链接。<br>1.单位<br>%         依据元素内容宽度（超过50%时按50%渲染）<br>length    具体数值（对应超过50%时按50%渲染）</p>
+<a id="more"></a>
+<p>2.单值设置<br>border-radius类似border有四个方向的值，并在此基础上添加水平和垂直方向上的区分形成8个值.<br>border-radius{h1 h2 h3 h4 / v1 v2 v3 v4}<br>单独设置时则为：<br>border-top-left-radius：h1 v1<br>border-top-left-radius：h2 v2<br>border-bottom-left-radius：h3 v3<br>border-bottom-left-radius：h4 v4<br>(ps:简写时例如border-radius：300px；若超过50%除了遵循按50%渲染的原则外还会有一个保持垂直和水平方向上的比例。即，可利用border-radius：300px/400px 来使h:v=3:4)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;注：本文只是对&lt;a href=&quot;http://www.zhangxinxu.com/wordpress/2015/11/css3-border-radius-tips/&quot;&gt;张鑫旭CSS3 border-radius知多少？&lt;/a&gt;这篇文章内容做出总结和一些小应用，想要了解过程的同学可以直接戳上面链接。&lt;br&gt;1.单位&lt;br&gt;%         依据元素内容宽度（超过50%时按50%渲染）&lt;br&gt;length    具体数值（对应超过50%时按50%渲染）&lt;/p&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>absolute探秘~</title>
+    <link href="http://sandm0.github.io/2016/10/02/absolute%E6%8E%A2%E7%A7%98~/"/>
+    <id>http://sandm0.github.io/2016/10/02/absolute探秘~/</id>
+    <published>2016-10-02T06:39:55.693Z</published>
+    <updated>2016-10-02T06:55:49.117Z</updated>
+    
+    <content type="html"><![CDATA[<p>css position属性允许你定位一个元素，通过使用top，left，bottom，right属性，当然你必须先设定position的属性值，以便告诉浏览器依据什么方式进行定位。</p>
+<ul>
+<li>static<br>元素框正常生成。块级元素生成一个矩形框，作为文档流的一部分，行内元素则会创建一个或多个行框，置于其父元素中。</li>
+<li>relative<br>元素框偏移某个距离。元素仍保持其未定位前的形状，它原本所占的空间仍保留。</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>absolute<br>元素框从文档流完全删除，并相对于其包含块定位。包含块可能是文档中的另一个元素或者是初始包含块。元素原先在正常文档流中所占的空间会关闭，就好像元素原来不存在一样。元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框。</li>
+<li>fixed<br>元素框的表现类似于将 position 设置为 absolute，不过其包含块是视窗本身。</li>
+</ul>
+<p>因为绝对定位（position：absolute）在实际应用中有着十分重要的地位，特别进行深度探究以便在使用中能更得心应手。<br>元素设置position：absolute后主要会带来4个影响。</p>
+<p>######1.脱离文档流，其在文档流中所占空间会被关闭。</p>
+<p>######2.可相对与已被定位的父元素进行定位，逐级向上直到找到为止。</p>
+<p>######3.生成一个块级框，不论原来它在正常流中生成何种类型的框。（其实就是形成bfc）。</p>
+<p>######4.拥有z-index属性，可以进行层级设定，最大为2147483647。（等值按网页代码中层出现的顺序,后出现的层高于先出现的层）<br>1、2、和4都好理解这里对2进行着重分析。<br>因为定位可以是realitive、absolute和fixed。故父级元素会出现3中情况。<br>1.父元素relative(√)。<br><code>.parents{width: 200px;height:200px;position: relative;background: #f60;}
+.box{width: 100px;height:100px;position: absolute;background: #06f;top: 50px; left: 50px;</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-964b1d7af58fbff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>2.父元素fixed（√）<br><code>.parents{width:200px;height:200px;position:fixed;background: #f60;letf:100px;top:100px;}
+.box{width: 100px;height:100px;position: absolute;background: #06f;top: 50px; left: 50px;</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-c7535fcc10852656.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>3.父元素absolute（√）<br><code>.parents{width:200px;height:200px;position:absolute;background: #f60;letf:100px;top:100px;}
+.box{width: 100px;height:100px;position: absolute;background: #06f;top: 50px; left: 50px;</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-748b798f65dfae38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>######结论：relative、fixed、absolute表现效果一致，父容器只要定位position就有效。<br>第二个问题top、right、bottom、left定位到最近一个具有定位设置父元素的边缘的距离。这个边缘指的是什么？<br>因为盒子的margin 、border、padding、及content都会影响盒子的尺寸。在这里对父元素为relative的模型进行依次添加。<br>1.添加margin:50px 0 0 50px;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-d8c62865e7b959f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>2.添加border-left: 50px solid #000;border-top: 50px solid #000;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-a92fc3691971a09f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>3添加padding:50px 0 0 50px;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-5132a8c5884df316.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>######结论：定位所依据的父容器的边缘指的是padding+元素内容整体的边界。<br>第三个问题left除了设置length具体尺寸，%相对于父容器的尺寸，默认会设置成auto，通过浏览器来计算位置。那么具体是怎么计算的呢。父元素为relative的模型进行探究。<br>1.子元素top: auto;left: auto;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-cf8c37d840a30f98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>2.父元素添加margin-left:50px;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-2c4e19ece1c26cc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"><br>3.父元素继续添加border-left:50px solid #000;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-626897028c49999a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>4.父元素继续添加padding-left:50px;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-58f1a5b123bf01d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>5.父元素继续添加padding-top:50px;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-e2b025cb176beb47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>######结论：可以看出设置auto后，left等属性计算距离的边界变为content内容本身。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;css position属性允许你定位一个元素，通过使用top，left，bottom，right属性，当然你必须先设定position的属性值，以便告诉浏览器依据什么方式进行定位。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;static&lt;br&gt;元素框正常生成。块级元素生成一个矩形框，作为文档流的一部分，行内元素则会创建一个或多个行框，置于其父元素中。&lt;/li&gt;
+&lt;li&gt;relative&lt;br&gt;元素框偏移某个距离。元素仍保持其未定位前的形状，它原本所占的空间仍保留。&lt;/li&gt;
+&lt;/ul&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>sublimeliner安装指南</title>
+    <link href="http://sandm0.github.io/2016/10/02/sublimeliner%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"/>
+    <id>http://sandm0.github.io/2016/10/02/sublimeliner安装指南/</id>
+    <published>2016-10-02T06:37:53.470Z</published>
+    <updated>2016-10-02T06:57:01.875Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="###准备工作"></a>###准备工作</h2><p>1.安装<a href="http://nodejs.org" target="_blank" rel="external">node.js</a><br>2.安装csslint，jshint<br>   找到node.js comand prompt，输入以下命令</p>
+<blockquote>
+<p>npm install csslint<br>npm install jshint<br>这两个就是实际起作用的组件。<br><a id="more"></a></p>
+<h2 id="安装sublimelinter"><a href="#安装sublimelinter" class="headerlink" title="###安装sublimelinter"></a>###安装sublimelinter</h2><ul>
+<li>ctrl+shift+p打开sublime Text 包管理面板输入pci选择package control install</li>
+<li>输入sublimelinter，选择安装。（不建议将包直接丢进package里，麻烦实在太多）</li>
+<li>重复1，2步输入sublimelinter-csslint，安装。</li>
+<li>重复1，2步输入sublimelinter-jshint，安装。</li>
+</ul>
+</blockquote>
+<h2 id="进行设置"><a href="#进行设置" class="headerlink" title="###进行设置"></a>###进行设置</h2><p>1.修改校验器的路径。</p>
+<blockquote>
+<p> “sublimelinter_executable_map”:</p>
+<p>“javascript”:”d:/program file/nodejs/node.exe”,<br> “css”:”d:/program file/nodejs/node.exe”</p>
+</blockquote>
+<p>2.对校验选项选项进行修改，特别是css。下方为网上常用的设置。</p>
+<pre><code>{
+    &quot;user&quot;: {
+        &quot;csslint_options&quot;: {
+            &quot;adjoining-classes&quot;: false,
+            &quot;box-model&quot;: false,
+            &quot;box-sizing&quot;: false,
+            &quot;compatible-vendor-prefixes&quot;: false,
+            &quot;duplicate-background-imges&quot;: false,
+            &quot;floats&quot;: false,
+            &quot;font-sizes&quot;: false,
+            &quot;gradients&quot;: false,
+            &quot;ids&quot;: false,
+            &quot;important&quot;: false,
+            &quot;known-properties&quot;: false,
+            &quot;outline-none&quot;: false,
+            &quot;qualified-headings&quot;: false,
+            &quot;regex-selectors&quot;: false,
+            &quot;shorthand&quot;: false,
+            &quot;text-indent&quot;: false,
+            &quot;unique-headings&quot;: false,
+            &quot;universal-selector&quot;: false,
+            &quot;unqualified-attributes&quot;: false
+        },
+        &quot;debug&quot;: false,
+        &quot;delay&quot;: 0.25,
+        &quot;error_color&quot;: &quot;D02000&quot;,
+        &quot;gutter_theme&quot;: &quot;Packages/SublimeLinter/gutter-themes/Default/Default.gutter-theme&quot;,
+        &quot;gutter_theme_excludes&quot;: [],
+        &quot;jshint_options&quot;: {
+            &quot;browser&quot;: true,
+            &quot;curly&quot;: true,
+            &quot;devel&quot;: true,
+            &quot;eqeqeq&quot;: true,
+            &quot;evil&quot;: true,
+            &quot;forin&quot;: true,
+            &quot;globals&quot;: {
+                &quot;$&quot;: true,
+                &quot;console&quot;: true,
+                &quot;document&quot;: true,
+                &quot;global&quot;: true,
+                &quot;grunt&quot;: true,
+                &quot;jQuery&quot;: true,
+                &quot;module&quot;: true,
+                &quot;setInterval&quot;: true,
+                &quot;setTimeout&quot;: true,
+                &quot;window&quot;: true
+            },
+            &quot;jquery&quot;: true,
+            &quot;latedef&quot;: true,
+            &quot;noarg&quot;: true,
+            &quot;noempty&quot;: true,
+            &quot;quotmark&quot;: &quot;single&quot;,
+            &quot;strict&quot;: false,
+            &quot;undef&quot;: true,
+            &quot;unused&quot;: &quot;vars&quot;,
+            &quot;wsh&quot;: true
+        },
+        &quot;lint_mode&quot;: &quot;save only&quot;,
+        &quot;linters&quot;: {
+            &quot;csslint&quot;: {
+                &quot;@disable&quot;: false,
+                &quot;args&quot;: [],
+                &quot;errors&quot;: &quot;&quot;,
+                &quot;excludes&quot;: [],
+                &quot;ignore&quot;: &quot;&quot;,
+                &quot;warnings&quot;: &quot;&quot;
+            },
+            &quot;htmlhint&quot;: {
+                &quot;@disable&quot;: true,
+                &quot;args&quot;: [],
+                &quot;excludes&quot;: []
+            },
+            &quot;jshint&quot;: {
+                &quot;@disable&quot;: true,
+                &quot;args&quot;: [],
+                &quot;excludes&quot;: []
+            }
+        },
+        &quot;mark_style&quot;: &quot;outline&quot;,
+        &quot;no_column_highlights_line&quot;: false,
+        &quot;passive_warnings&quot;: false,
+        &quot;paths&quot;: {
+            &quot;linux&quot;: [],
+            &quot;osx&quot;: [],
+            &quot;windows&quot;: []
+        },
+        &quot;python_paths&quot;: {
+            &quot;linux&quot;: [],
+            &quot;osx&quot;: [],
+            &quot;windows&quot;: []
+        },
+        &quot;rc_search_limit&quot;: 3,
+        &quot;shell_timeout&quot;: 10,
+        &quot;show_errors_on_save&quot;: false,
+        &quot;show_marks_in_minimap&quot;: true,
+        &quot;sublimelinter&quot;: &quot;save-only&quot;,
+        &quot;sublimelinter_executable_map&quot;: {
+            &quot;css&quot;: &quot;C:/Program Files (x86)/nodejs/node.exe&quot;,
+            &quot;html&quot;: &quot;C:/Program Files (x86)/nodejs/node.exe&quot;,
+            &quot;javascript&quot;: &quot;C:/Program Files(x86)/nodejs/node.exe&quot;
+        },
+        &quot;sublimelinter_gutter_marks&quot;: true,
+        &quot;sublimelinter_popup_errors_on_save&quot;: true,
+        &quot;syntax_map&quot;: {
+            &quot;html (django)&quot;: &quot;html&quot;,
+            &quot;html (rails)&quot;: &quot;html&quot;,
+            &quot;html 5&quot;: &quot;html&quot;,
+            &quot;javascript (babel)&quot;: &quot;javascript&quot;,
+            &quot;magicpython&quot;: &quot;python&quot;,
+            &quot;php&quot;: &quot;html&quot;,
+            &quot;python django&quot;: &quot;python&quot;
+        },
+        &quot;warning_color&quot;: &quot;DDB700&quot;,
+        &quot;wrap_find&quot;: true
+    }
+}
+</code></pre><p>3.这个时候可能会发现对csslint单独设置的options并没有起到作用，虽然sulimelinter的官方文档也说了是有效的。不过可以使用ignore对warings进行忽略。</p>
+<pre><code>&quot;csslint&quot;: {
+                &quot;@disable&quot;: false,
+                &quot;args&quot;: [],
+                &quot;errors&quot;: &quot;&quot;,
+                &quot;excludes&quot;: [],
+                &quot;ignore&quot;: [
+                    &quot;ids&quot;,
+                    &quot;box-model&quot;,
+                    &quot;box-sizing&quot;,
+                    &quot;universal-selector&quot;,
+                    &quot;duplicate-background-imges&quot;,
+                    &quot;adjoining-classes&quot;,
+                    &quot;text-indent&quot;
+                ],
+                &quot;warnings&quot;: &quot;&quot;
+            },
+</code></pre>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h2 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;###准备工作&quot;&gt;&lt;/a&gt;###准备工作&lt;/h2&gt;&lt;p&gt;1.安装&lt;a href=&quot;http://nodejs.org&quot;&gt;node.js&lt;/a&gt;&lt;br&gt;2.安装csslint，jshint&lt;br&gt;   找到node.js comand prompt，输入以下命令&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;npm install csslint&lt;br&gt;npm install jshint&lt;br&gt;这两个就是实际起作用的组件。&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>嘿！haslayout</title>
+    <link href="http://sandm0.github.io/2016/10/02/%E5%98%BF!haslayout/"/>
+    <id>http://sandm0.github.io/2016/10/02/嘿!haslayout/</id>
+    <published>2016-10-02T06:34:49.930Z</published>
+    <updated>2016-10-02T06:54:56.064Z</updated>
+    
+    <content type="html"><![CDATA[<p>haslayout是Windows Internet Explorer渲染引擎的一个内部组成部分,记住只有ie才会有哦。（注：ie8之后此属性已被废弃）<br><a id="more"></a><br>为什么会出现这个属性？因为在IE中，一个元素要被渲染出来，总的有尺寸和位置吧，获取这两个属性要么依赖于父元素来计算，要么<br>就是依赖自己的内容来计算。为了告诉浏览器依据谁来定，就有了haslayout属性，如果它设置成了true，它就不得不去渲染它自己，<br>因此元素不得不扩展去包含它的流出的内容。如果haslayout被设置成false，那么元素得依靠某个祖先元素来渲染它。这就是很多的ie<br>bugs诞生的地方。（通过 IE Developer Toolbar 可以查看 IE 下 HTML元素是否拥有haslayout，在 IE Developer Toolbar 下，<br>拥有 haslayout的元素，通常显示为“haslayout = -1”。）</p>
+<p>那么所有元素都的haslayout属性设置成true不就得了。然而并非如此，微软给出的主要原因是“性能和简洁”。如果所有的元素都默认<br>有布局，会对性能和内存使用上产生有害的影响。</p>
+<p>拥有布局的元素主要有<br>body and html<br>table, tr, th, td<br>img<br>hr<br>input, button, file, select, textarea, fieldset<br>marquee<br>frameset, frame, iframe<br>objects, applets, embed</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;haslayout是Windows Internet Explorer渲染引擎的一个内部组成部分,记住只有ie才会有哦。（注：ie8之后此属性已被废弃）&lt;br&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>html中拥有src和href属性的标签汇总</title>
+    <link href="http://sandm0.github.io/2016/10/02/html%E4%B8%AD%E6%8B%A5%E6%9C%89src%E5%92%8Chref%E5%B1%9E%E6%80%A7%E7%9A%84%E6%A0%87%E7%AD%BE%E6%B1%87%E6%80%BB/"/>
+    <id>http://sandm0.github.io/2016/10/02/html中拥有src和href属性的标签汇总/</id>
+    <published>2016-10-02T06:26:41.377Z</published>
+    <updated>2016-10-02T06:57:31.709Z</updated>
+    
+    <content type="html"><![CDATA[<p>###src</p>
+<ul>
+<li>img  图片 <code>&lt;img src=&quot;/img/1.png&quot; alt=&quot;1&quot; /&gt;</code></li>
+<li>rame iframe 框架集 <code>&lt;iframe src=&quot;girl.gif&quot;&gt;&lt;/iframe&gt;</code></li>
+<li>input type 为image的提交按钮 <code>&lt;input type=&quot;image&quot; src=&quot;submit.jpg&quot;
+alt=&quot;Submit&quot; align=&quot;right&quot; /&gt;</code><a id="more"></a></li>
+<li>scirpt 脚本 <code>&lt;script type=&quot;text/javascript&quot; src=&quot;org.js&quot;&gt;&lt;/script&gt;</code></li>
+<li>style 样式表（胎死腹中的XHTML2中就将src属性推广到了所有元素。比如可以：  <code>&lt;style src=&quot;common.css&quot;&gt; &lt;/style&gt;</code>）<br>###href</li>
+<li>a  <code>&lt;a href=&quot;http://www.baidu.com&quot; target=&quot;_blank&quot;&gt;百度&lt;/a&gt;</code></li>
+<li>link 引用外部css <code>&lt;link type=&quot;text/css&quot; href=&quot;iknow_base.css&quot; rel=&quot;stylesheet&quot; /&gt;</code></li>
+<li>input type 中的onclick事件<br><code>&lt;input type=button onclick=&quot;window.location.href(&#39;#&#39;)&quot; /&gt;</code></li>
+</ul>
+<p>以上是src和href会被用到的标签，下面来看看他们的区别。</p>
+<p>src是source的简写，表示“源”，是引用一个资源将该元素的内容将整体替换。如果不写src，那么本身没有内容，script会不存在脚本代码，img会显示x，iframe会显示空白页。例如<script type="text/javascript" src="b.js">alert(1)</script>，b.js:alert(2); 标准的浏览器里会显示2，因为本身的内容已经被替代了。</p>
+<p>href是Hypertext Reference的缩写，表示“超链接”， 目的不是为了引用一个资源，而是为了建立一个“通道”，让当前标签能够链接到目标地址上，并不是为了把目标拉进页面本身内来替换本身的内容，例如a标签的href不会被当做一个资源替换自身，link标签本身并不包含实际的元素意义来做内容，它需要rel明确的表示被【被连接的文档是做什么的】。至于说为什么当初就决定外部样式表用link href来链接，而不是用style src来载入，可能是因为先贤们认为样式表更符合外部链接资源的特征，它更接近附属的资源，而不是内嵌的内容。</p>
+<p>以上主要内容引自<a href="http://www.zhihu.com/question/19708137" target="_blank" rel="external">为什么加载 JavaScript 使用 “src”，CSS 使用 “href”？有其含义还是历史语法遗留？</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;###src&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;img  图片 &lt;code&gt;&amp;lt;img src=&amp;quot;/img/1.png&amp;quot; alt=&amp;quot;1&amp;quot; /&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;rame iframe 框架集 &lt;code&gt;&amp;lt;iframe src=&amp;quot;girl.gif&amp;quot;&amp;gt;&amp;lt;/iframe&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;input type 为image的提交按钮 &lt;code&gt;&amp;lt;input type=&amp;quot;image&amp;quot; src=&amp;quot;submit.jpg&amp;quot;
+alt=&amp;quot;Submit&amp;quot; align=&amp;quot;right&amp;quot; /&amp;gt;&lt;/code&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://sandm0.github.io/2016/10/02/hello-world/"/>
+    <id>http://sandm0.github.io/2016/10/02/hello-world/</id>
+    <published>2016-10-02T02:12:43.273Z</published>
+    <updated>2016-10-02T03:52:05.095Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
+<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
+<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
+<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
+<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
+<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for more info. If you get any problems when using Hexo, you can find the answer in &lt;a href=&quot;https://hexo.io/docs/troubleshooting.html&quot;&gt;troubleshooting&lt;/a&gt; or you can ask me on &lt;a href=&quot;https://github.com/hexojs/hexo/issues&quot;&gt;GitHub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&quot;Quick-Start&quot;&gt;&lt;a href=&quot;#Quick-Start&quot; class=&quot;headerlink&quot; title=&quot;Quick Start&quot;&gt;&lt;/a&gt;Quick Start&lt;/h2&gt;&lt;h3 id=&quot;Create-a-new-post&quot;&gt;&lt;a href=&quot;#Create-a-new-post&quot; class=&quot;headerlink&quot; title=&quot;Create a new post&quot;&gt;&lt;/a&gt;Create a new post&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo new &lt;span class=&quot;string&quot;&gt;&quot;My New Post&quot;&lt;/span&gt;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/writing.html&quot;&gt;Writing&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Run-server&quot;&gt;&lt;a href=&quot;#Run-server&quot; class=&quot;headerlink&quot; title=&quot;Run server&quot;&gt;&lt;/a&gt;Run server&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo server&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+&lt;p&gt;More info: &lt;a href=&quot;https://hexo.io/docs/server.html&quot;&gt;Server&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id=&quot;Generate-static-files&quot;&gt;&lt;a href=&quot;#Generate-static-files&quot; class=&quot;headerlink&quot; title=&quot;Generate static files&quot;&gt;&lt;/a&gt;Generate static files&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;$ hexo generate&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+    
+    </summary>
+    
+    
+  </entry>
+  
+</feed>

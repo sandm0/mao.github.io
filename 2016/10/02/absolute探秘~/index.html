@@ -1,0 +1,33 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> absolute探秘~ · 小松の前端小站</title><meta name="description" content="absolute探秘~ - Sandm"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sandm0.github.io/atom.xml" title="小松の前端小站"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">主页</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">文章</a></li><li class="nav-list-item"><a href="http://weibo.com/sandm0" target="_blank" class="nav-list-link">微博</a></li><li class="nav-list-item"><a href="https://github.com/sandm0" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">absolute探秘~</h1><div class="post-info">2016年10月2日</div><div class="post-content"><p>css position属性允许你定位一个元素，通过使用top，left，bottom，right属性，当然你必须先设定position的属性值，以便告诉浏览器依据什么方式进行定位。</p>
+<ul>
+<li>static<br>元素框正常生成。块级元素生成一个矩形框，作为文档流的一部分，行内元素则会创建一个或多个行框，置于其父元素中。</li>
+<li>relative<br>元素框偏移某个距离。元素仍保持其未定位前的形状，它原本所占的空间仍保留。</li>
+</ul>
+<a id="more"></a>
+<ul>
+<li>absolute<br>元素框从文档流完全删除，并相对于其包含块定位。包含块可能是文档中的另一个元素或者是初始包含块。元素原先在正常文档流中所占的空间会关闭，就好像元素原来不存在一样。元素定位后生成一个块级框，而不论原来它在正常流中生成何种类型的框。</li>
+<li>fixed<br>元素框的表现类似于将 position 设置为 absolute，不过其包含块是视窗本身。</li>
+</ul>
+<p>因为绝对定位（position：absolute）在实际应用中有着十分重要的地位，特别进行深度探究以便在使用中能更得心应手。<br>元素设置position：absolute后主要会带来4个影响。</p>
+<p>######1.脱离文档流，其在文档流中所占空间会被关闭。</p>
+<p>######2.可相对与已被定位的父元素进行定位，逐级向上直到找到为止。</p>
+<p>######3.生成一个块级框，不论原来它在正常流中生成何种类型的框。（其实就是形成bfc）。</p>
+<p>######4.拥有z-index属性，可以进行层级设定，最大为2147483647。（等值按网页代码中层出现的顺序,后出现的层高于先出现的层）<br>1、2、和4都好理解这里对2进行着重分析。<br>因为定位可以是realitive、absolute和fixed。故父级元素会出现3中情况。<br>1.父元素relative(√)。<br><code>.parents{width: 200px;height:200px;position: relative;background: #f60;}
+.box{width: 100px;height:100px;position: absolute;background: #06f;top: 50px; left: 50px;</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-964b1d7af58fbff9.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>2.父元素fixed（√）<br><code>.parents{width:200px;height:200px;position:fixed;background: #f60;letf:100px;top:100px;}
+.box{width: 100px;height:100px;position: absolute;background: #06f;top: 50px; left: 50px;</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-c7535fcc10852656.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>3.父元素absolute（√）<br><code>.parents{width:200px;height:200px;position:absolute;background: #f60;letf:100px;top:100px;}
+.box{width: 100px;height:100px;position: absolute;background: #06f;top: 50px; left: 50px;</code></p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-748b798f65dfae38.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>######结论：relative、fixed、absolute表现效果一致，父容器只要定位position就有效。<br>第二个问题top、right、bottom、left定位到最近一个具有定位设置父元素的边缘的距离。这个边缘指的是什么？<br>因为盒子的margin 、border、padding、及content都会影响盒子的尺寸。在这里对父元素为relative的模型进行依次添加。<br>1.添加margin:50px 0 0 50px;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-d8c62865e7b959f3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>2.添加border-left: 50px solid #000;border-top: 50px solid #000;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-a92fc3691971a09f.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>3添加padding:50px 0 0 50px;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-5132a8c5884df316.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>######结论：定位所依据的父容器的边缘指的是padding+元素内容整体的边界。<br>第三个问题left除了设置length具体尺寸，%相对于父容器的尺寸，默认会设置成auto，通过浏览器来计算位置。那么具体是怎么计算的呢。父元素为relative的模型进行探究。<br>1.子元素top: auto;left: auto;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-cf8c37d840a30f98.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>2.父元素添加margin-left:50px;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-2c4e19ece1c26cc2.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="1.png"><br>3.父元素继续添加border-left:50px solid #000;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-626897028c49999a.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>4.父元素继续添加padding-left:50px;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-58f1a5b123bf01d3.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""><br>5.父元素继续添加padding-top:50px;</p>
+<p><img src="http://upload-images.jianshu.io/upload_images/1221136-e2b025cb176beb47.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt=""></p>
+<p>######结论：可以看出设置auto后，left等属性计算距离的边界变为content内容本身。</p>
+</div></article></div></section><footer><div class="paginator"><a href="/2016/10/02/有料的border-radius/" class="prev">上一篇</a><a href="/2016/10/02/sublimeliner安装指南/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2016 <a href="http://sandm0.github.io">Sandm</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>

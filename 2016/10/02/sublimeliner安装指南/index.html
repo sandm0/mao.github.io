@@ -1,0 +1,150 @@
+<!DOCTYPE html><html lang="zh-cn"><head><meta charset="utf-8"><meta name="X-UA-Compatible" content="IE=edge"><title> sublimeliner安装指南 · 小松の前端小站</title><meta name="description" content="sublimeliner安装指南 - Sandm"><meta name="viewport" content="width=device-width, initial-scale=1"><link rel="short icon" href="/favicon.png"><link rel="stylesheet" href="/css/apollo.css"><link rel="search" type="application/opensearchdescription+xml" href="http://sandm0.github.io/atom.xml" title="小松の前端小站"></head><body><div class="wrap"><header><a href="/" class="logo-link"><img src="/favicon.png"></a><ul class="nav nav-list"><li class="nav-list-item"><a href="/" target="_self" class="nav-list-link">主页</a></li><li class="nav-list-item"><a href="/archives/" target="_self" class="nav-list-link">文章</a></li><li class="nav-list-item"><a href="http://weibo.com/sandm0" target="_blank" class="nav-list-link">微博</a></li><li class="nav-list-item"><a href="https://github.com/sandm0" target="_blank" class="nav-list-link">GITHUB</a></li><li class="nav-list-item"><a href="/atom.xml" target="_self" class="nav-list-link">RSS</a></li></ul></header><section class="container"><div class="post"><article class="post-block"><h1 class="post-title">sublimeliner安装指南</h1><div class="post-info">2016年10月2日</div><div class="post-content"><h2 id="准备工作"><a href="#准备工作" class="headerlink" title="###准备工作"></a>###准备工作</h2><p>1.安装<a href="http://nodejs.org" target="_blank" rel="external">node.js</a><br>2.安装csslint，jshint<br>   找到node.js comand prompt，输入以下命令</p>
+<blockquote>
+<p>npm install csslint<br>npm install jshint<br>这两个就是实际起作用的组件。<br><a id="more"></a></p>
+<h2 id="安装sublimelinter"><a href="#安装sublimelinter" class="headerlink" title="###安装sublimelinter"></a>###安装sublimelinter</h2><ul>
+<li>ctrl+shift+p打开sublime Text 包管理面板输入pci选择package control install</li>
+<li>输入sublimelinter，选择安装。（不建议将包直接丢进package里，麻烦实在太多）</li>
+<li>重复1，2步输入sublimelinter-csslint，安装。</li>
+<li>重复1，2步输入sublimelinter-jshint，安装。</li>
+</ul>
+</blockquote>
+<h2 id="进行设置"><a href="#进行设置" class="headerlink" title="###进行设置"></a>###进行设置</h2><p>1.修改校验器的路径。</p>
+<blockquote>
+<p> “sublimelinter_executable_map”:</p>
+<p>“javascript”:”d:/program file/nodejs/node.exe”,<br> “css”:”d:/program file/nodejs/node.exe”</p>
+</blockquote>
+<p>2.对校验选项选项进行修改，特别是css。下方为网上常用的设置。</p>
+<pre><code>{
+    &quot;user&quot;: {
+        &quot;csslint_options&quot;: {
+            &quot;adjoining-classes&quot;: false,
+            &quot;box-model&quot;: false,
+            &quot;box-sizing&quot;: false,
+            &quot;compatible-vendor-prefixes&quot;: false,
+            &quot;duplicate-background-imges&quot;: false,
+            &quot;floats&quot;: false,
+            &quot;font-sizes&quot;: false,
+            &quot;gradients&quot;: false,
+            &quot;ids&quot;: false,
+            &quot;important&quot;: false,
+            &quot;known-properties&quot;: false,
+            &quot;outline-none&quot;: false,
+            &quot;qualified-headings&quot;: false,
+            &quot;regex-selectors&quot;: false,
+            &quot;shorthand&quot;: false,
+            &quot;text-indent&quot;: false,
+            &quot;unique-headings&quot;: false,
+            &quot;universal-selector&quot;: false,
+            &quot;unqualified-attributes&quot;: false
+        },
+        &quot;debug&quot;: false,
+        &quot;delay&quot;: 0.25,
+        &quot;error_color&quot;: &quot;D02000&quot;,
+        &quot;gutter_theme&quot;: &quot;Packages/SublimeLinter/gutter-themes/Default/Default.gutter-theme&quot;,
+        &quot;gutter_theme_excludes&quot;: [],
+        &quot;jshint_options&quot;: {
+            &quot;browser&quot;: true,
+            &quot;curly&quot;: true,
+            &quot;devel&quot;: true,
+            &quot;eqeqeq&quot;: true,
+            &quot;evil&quot;: true,
+            &quot;forin&quot;: true,
+            &quot;globals&quot;: {
+                &quot;$&quot;: true,
+                &quot;console&quot;: true,
+                &quot;document&quot;: true,
+                &quot;global&quot;: true,
+                &quot;grunt&quot;: true,
+                &quot;jQuery&quot;: true,
+                &quot;module&quot;: true,
+                &quot;setInterval&quot;: true,
+                &quot;setTimeout&quot;: true,
+                &quot;window&quot;: true
+            },
+            &quot;jquery&quot;: true,
+            &quot;latedef&quot;: true,
+            &quot;noarg&quot;: true,
+            &quot;noempty&quot;: true,
+            &quot;quotmark&quot;: &quot;single&quot;,
+            &quot;strict&quot;: false,
+            &quot;undef&quot;: true,
+            &quot;unused&quot;: &quot;vars&quot;,
+            &quot;wsh&quot;: true
+        },
+        &quot;lint_mode&quot;: &quot;save only&quot;,
+        &quot;linters&quot;: {
+            &quot;csslint&quot;: {
+                &quot;@disable&quot;: false,
+                &quot;args&quot;: [],
+                &quot;errors&quot;: &quot;&quot;,
+                &quot;excludes&quot;: [],
+                &quot;ignore&quot;: &quot;&quot;,
+                &quot;warnings&quot;: &quot;&quot;
+            },
+            &quot;htmlhint&quot;: {
+                &quot;@disable&quot;: true,
+                &quot;args&quot;: [],
+                &quot;excludes&quot;: []
+            },
+            &quot;jshint&quot;: {
+                &quot;@disable&quot;: true,
+                &quot;args&quot;: [],
+                &quot;excludes&quot;: []
+            }
+        },
+        &quot;mark_style&quot;: &quot;outline&quot;,
+        &quot;no_column_highlights_line&quot;: false,
+        &quot;passive_warnings&quot;: false,
+        &quot;paths&quot;: {
+            &quot;linux&quot;: [],
+            &quot;osx&quot;: [],
+            &quot;windows&quot;: []
+        },
+        &quot;python_paths&quot;: {
+            &quot;linux&quot;: [],
+            &quot;osx&quot;: [],
+            &quot;windows&quot;: []
+        },
+        &quot;rc_search_limit&quot;: 3,
+        &quot;shell_timeout&quot;: 10,
+        &quot;show_errors_on_save&quot;: false,
+        &quot;show_marks_in_minimap&quot;: true,
+        &quot;sublimelinter&quot;: &quot;save-only&quot;,
+        &quot;sublimelinter_executable_map&quot;: {
+            &quot;css&quot;: &quot;C:/Program Files (x86)/nodejs/node.exe&quot;,
+            &quot;html&quot;: &quot;C:/Program Files (x86)/nodejs/node.exe&quot;,
+            &quot;javascript&quot;: &quot;C:/Program Files(x86)/nodejs/node.exe&quot;
+        },
+        &quot;sublimelinter_gutter_marks&quot;: true,
+        &quot;sublimelinter_popup_errors_on_save&quot;: true,
+        &quot;syntax_map&quot;: {
+            &quot;html (django)&quot;: &quot;html&quot;,
+            &quot;html (rails)&quot;: &quot;html&quot;,
+            &quot;html 5&quot;: &quot;html&quot;,
+            &quot;javascript (babel)&quot;: &quot;javascript&quot;,
+            &quot;magicpython&quot;: &quot;python&quot;,
+            &quot;php&quot;: &quot;html&quot;,
+            &quot;python django&quot;: &quot;python&quot;
+        },
+        &quot;warning_color&quot;: &quot;DDB700&quot;,
+        &quot;wrap_find&quot;: true
+    }
+}
+</code></pre><p>3.这个时候可能会发现对csslint单独设置的options并没有起到作用，虽然sulimelinter的官方文档也说了是有效的。不过可以使用ignore对warings进行忽略。</p>
+<pre><code>&quot;csslint&quot;: {
+                &quot;@disable&quot;: false,
+                &quot;args&quot;: [],
+                &quot;errors&quot;: &quot;&quot;,
+                &quot;excludes&quot;: [],
+                &quot;ignore&quot;: [
+                    &quot;ids&quot;,
+                    &quot;box-model&quot;,
+                    &quot;box-sizing&quot;,
+                    &quot;universal-selector&quot;,
+                    &quot;duplicate-background-imges&quot;,
+                    &quot;adjoining-classes&quot;,
+                    &quot;text-indent&quot;
+                ],
+                &quot;warnings&quot;: &quot;&quot;
+            },
+</code></pre></div></article></div></section><footer><div class="paginator"><a href="/2016/10/02/absolute探秘~/" class="prev">上一篇</a><a href="/2016/10/02/嘿!haslayout/" class="next">下一篇</a></div><div class="copyright"><p>© 2015 - 2016 <a href="http://sandm0.github.io">Sandm</a>, powered by <a href="https://hexo.io/" target="_blank">Hexo</a> and <a href="https://github.com/pinggod/hexo-theme-apollo" target="_blank">hexo-theme-apollo</a>.</p></div></footer></div><script async src="//cdn.bootcss.com/mathjax/2.6.1/MathJax.js?config=TeX-MML-AM_CHTML"></script><script>(function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;e=o.createElement(i);r=o.getElementsByTagName(i)[0];e.src='//www.google-analytics.com/analytics.js';r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));ga('create',"UA-65933410-1",'auto');ga('send','pageview');</script></body></html>
