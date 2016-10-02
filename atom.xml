@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
-  <title>小松の前端小站</title>
-  <subtitle>Stay Hungry. Stay Foolish</subtitle>
+  <title>小松的前端小站</title>
+  <subtitle>一期一会</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://sandm0.github.io/"/>
+  <link href="http://yoursite.com/"/>
   <updated>2016-10-02T06:54:13.119Z</updated>
-  <id>http://sandm0.github.io/</id>
+  <id>http://yoursite.com/</id>
   
   <author>
-    <name>Sandm</name>
+    <name>sandm0</name>
     
   </author>
   
@@ -17,8 +17,8 @@
   
   <entry>
     <title>古老的ie6的常见兼容问题汇总</title>
-    <link href="http://sandm0.github.io/2016/10/02/%E5%8F%A4%E8%80%81%E7%9A%84ie6%E7%9A%84%E5%B8%B8%E8%A7%81%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
-    <id>http://sandm0.github.io/2016/10/02/古老的ie6的常见兼容问题汇总/</id>
+    <link href="http://yoursite.com/2016/10/02/%E5%8F%A4%E8%80%81%E7%9A%84ie6%E7%9A%84%E5%B8%B8%E8%A7%81%E5%85%BC%E5%AE%B9%E9%97%AE%E9%A2%98%E6%B1%87%E6%80%BB/"/>
+    <id>http://yoursite.com/2016/10/02/古老的ie6的常见兼容问题汇总/</id>
     <published>2016-10-02T06:44:45.662Z</published>
     <updated>2016-10-02T06:54:13.119Z</updated>
     
@@ -109,8 +109,8 @@ style=&apos;height:0;clear:both&apos;&gt;&lt;/div&gt;; 方法2：为父标签添
   
   <entry>
     <title>有料的border-radius</title>
-    <link href="http://sandm0.github.io/2016/10/02/%E6%9C%89%E6%96%99%E7%9A%84border-radius/"/>
-    <id>http://sandm0.github.io/2016/10/02/有料的border-radius/</id>
+    <link href="http://yoursite.com/2016/10/02/%E6%9C%89%E6%96%99%E7%9A%84border-radius/"/>
+    <id>http://yoursite.com/2016/10/02/有料的border-radius/</id>
     <published>2016-10-02T06:42:53.765Z</published>
     <updated>2016-10-02T06:55:24.539Z</updated>
     
@@ -130,8 +130,8 @@ style=&apos;height:0;clear:both&apos;&gt;&lt;/div&gt;; 方法2：为父标签添
   
   <entry>
     <title>absolute探秘~</title>
-    <link href="http://sandm0.github.io/2016/10/02/absolute%E6%8E%A2%E7%A7%98~/"/>
-    <id>http://sandm0.github.io/2016/10/02/absolute探秘~/</id>
+    <link href="http://yoursite.com/2016/10/02/absolute%E6%8E%A2%E7%A7%98/"/>
+    <id>http://yoursite.com/2016/10/02/absolute探秘/</id>
     <published>2016-10-02T06:39:55.693Z</published>
     <updated>2016-10-02T06:55:49.117Z</updated>
     
@@ -184,8 +184,8 @@ style=&apos;height:0;clear:both&apos;&gt;&lt;/div&gt;; 方法2：为父标签添
   
   <entry>
     <title>sublimeliner安装指南</title>
-    <link href="http://sandm0.github.io/2016/10/02/sublimeliner%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"/>
-    <id>http://sandm0.github.io/2016/10/02/sublimeliner安装指南/</id>
+    <link href="http://yoursite.com/2016/10/02/sublimeliner%E5%AE%89%E8%A3%85%E6%8C%87%E5%8D%97/"/>
+    <id>http://yoursite.com/2016/10/02/sublimeliner安装指南/</id>
     <published>2016-10-02T06:37:53.470Z</published>
     <updated>2016-10-02T06:57:01.875Z</updated>
     
@@ -353,8 +353,8 @@ style=&apos;height:0;clear:both&apos;&gt;&lt;/div&gt;; 方法2：为父标签添
   
   <entry>
     <title>嘿！haslayout</title>
-    <link href="http://sandm0.github.io/2016/10/02/%E5%98%BF!haslayout/"/>
-    <id>http://sandm0.github.io/2016/10/02/嘿!haslayout/</id>
+    <link href="http://yoursite.com/2016/10/02/%E5%98%BF-haslayout/"/>
+    <id>http://yoursite.com/2016/10/02/嘿-haslayout/</id>
     <published>2016-10-02T06:34:49.930Z</published>
     <updated>2016-10-02T06:54:56.064Z</updated>
     
@@ -374,8 +374,8 @@ style=&apos;height:0;clear:both&apos;&gt;&lt;/div&gt;; 方法2：为父标签添
   
   <entry>
     <title>html中拥有src和href属性的标签汇总</title>
-    <link href="http://sandm0.github.io/2016/10/02/html%E4%B8%AD%E6%8B%A5%E6%9C%89src%E5%92%8Chref%E5%B1%9E%E6%80%A7%E7%9A%84%E6%A0%87%E7%AD%BE%E6%B1%87%E6%80%BB/"/>
-    <id>http://sandm0.github.io/2016/10/02/html中拥有src和href属性的标签汇总/</id>
+    <link href="http://yoursite.com/2016/10/02/html%E4%B8%AD%E6%8B%A5%E6%9C%89src%E5%92%8Chref%E5%B1%9E%E6%80%A7%E7%9A%84%E6%A0%87%E7%AD%BE%E6%B1%87%E6%80%BB/"/>
+    <id>http://yoursite.com/2016/10/02/html中拥有src和href属性的标签汇总/</id>
     <published>2016-10-02T06:26:41.377Z</published>
     <updated>2016-10-02T06:57:31.709Z</updated>
     
@@ -413,8 +413,8 @@ alt=&amp;quot;Submit&amp;quot; align=&amp;quot;right&amp;quot; /&amp;gt;&lt;/cod
   
   <entry>
     <title>Hello World</title>
-    <link href="http://sandm0.github.io/2016/10/02/hello-world/"/>
-    <id>http://sandm0.github.io/2016/10/02/hello-world/</id>
+    <link href="http://yoursite.com/2016/10/02/hello-world/"/>
+    <id>http://yoursite.com/2016/10/02/hello-world/</id>
     <published>2016-10-02T02:12:43.273Z</published>
     <updated>2016-10-02T03:52:05.095Z</updated>
     

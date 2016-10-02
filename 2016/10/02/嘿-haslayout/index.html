@@ -17,7 +17,7 @@
 <!--<![endif]-->
 
 <head>
-  <title>有料的border-radius | 小松的前端小站</title>
+  <title>嘿！haslayout | 小松的前端小站</title>
   <!-- Meta data -->
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8" >
     <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
@@ -199,37 +199,37 @@
         <div class="row col-md-offset-2">
             <div class="col-md-8">
     			<span class="post-meta">
-      <time datetime="2016-10-02T06:42:53.765Z" itemprop="datePublished">
+      <time datetime="2016-10-02T06:34:49.930Z" itemprop="datePublished">
           2016-10-02
       </time>
     
 </span>
-                <h1>有料的border-radius</h1>
+                <h1>嘿！haslayout</h1>
             </div>
         </div>
         <div class="col-md-8 col-md-offset-2">
-      		<p>注：本文只是对<a href="http://www.zhangxinxu.com/wordpress/2015/11/css3-border-radius-tips/" target="_blank" rel="external">张鑫旭CSS3 border-radius知多少？</a>这篇文章内容做出总结和一些小应用，想要了解过程的同学可以直接戳上面链接。<br>1.单位<br>%         依据元素内容宽度（超过50%时按50%渲染）<br>length    具体数值（对应超过50%时按50%渲染）</p>
-<a id="more"></a>
-<p>2.单值设置<br>border-radius类似border有四个方向的值，并在此基础上添加水平和垂直方向上的区分形成8个值.<br>border-radius{h1 h2 h3 h4 / v1 v2 v3 v4}<br>单独设置时则为：<br>border-top-left-radius：h1 v1<br>border-top-left-radius：h2 v2<br>border-bottom-left-radius：h3 v3<br>border-bottom-left-radius：h4 v4<br>(ps:简写时例如border-radius：300px；若超过50%除了遵循按50%渲染的原则外还会有一个保持垂直和水平方向上的比例。即，可利用border-radius：300px/400px 来使h:v=3:4)</p>
+      		<p>haslayout是Windows Internet Explorer渲染引擎的一个内部组成部分,记住只有ie才会有哦。（注：ie8之后此属性已被废弃）<br><a id="more"></a><br>为什么会出现这个属性？因为在IE中，一个元素要被渲染出来，总的有尺寸和位置吧，获取这两个属性要么依赖于父元素来计算，要么<br>就是依赖自己的内容来计算。为了告诉浏览器依据谁来定，就有了haslayout属性，如果它设置成了true，它就不得不去渲染它自己，<br>因此元素不得不扩展去包含它的流出的内容。如果haslayout被设置成false，那么元素得依靠某个祖先元素来渲染它。这就是很多的ie<br>bugs诞生的地方。（通过 IE Developer Toolbar 可以查看 IE 下 HTML元素是否拥有haslayout，在 IE Developer Toolbar 下，<br>拥有 haslayout的元素，通常显示为“haslayout = -1”。）</p>
+<p>那么所有元素都的haslayout属性设置成true不就得了。然而并非如此，微软给出的主要原因是“性能和简洁”。如果所有的元素都默认<br>有布局，会对性能和内存使用上产生有害的影响。</p>
+<p>拥有布局的元素主要有<br>body and html<br>table, tr, th, td<br>img<br>hr<br>input, button, file, select, textarea, fieldset<br>marquee<br>frameset, frame, iframe<br>objects, applets, embed</p>
 
             <div class="clearfix"></div>
             <hr class="nogutter">
         </div>
         <nav class="pagination" role="pagination">
     
-    <a class="pull-left" href="/2016/10/02/古老的ie6的常见兼容问题汇总/" style="float: left;">
-        ← 古老的ie6的常见兼容问题汇总
+    <a class="pull-left" href="/2016/10/02/sublimeliner安装指南/" style="float: left;">
+        ← sublimeliner安装指南
     </a>
     
     
-    <a class="pull-right" href="/2016/10/02/absolute探秘/">
-        absolute探秘~ →
+    <a class="pull-right" href="/2016/10/02/html中拥有src和href属性的标签汇总/">
+        html中拥有src和href属性的标签汇总 →
     </a>
     
 </nav>
 
         <div class="duoshuo">
-<div class="ds-thread" data-thread-key="2016/10/02/有料的border-radius/" data-title="有料的border-radius" data-url="http://yoursite.com/2016/10/02/有料的border-radius/"></div>
+<div class="ds-thread" data-thread-key="2016/10/02/嘿-haslayout/" data-title="嘿！haslayout" data-url="http://yoursite.com/2016/10/02/嘿-haslayout/"></div>
 <script type="text/javascript">
 var duoshuoQuery = {short_name:"duoshuo_name"};
 (function() {
